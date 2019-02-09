@@ -1,0 +1,42 @@
+---
+title: "Eviction Report"
+author: "Morgan Taylor"
+date: "February 7, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE)
+source("analysis.R")
+```
+
+## Summary
+
+This is a report focused on evictions in San Francisco.
+
+## Zip Code Analysis
+
+Since 2015, there have been `r num_evictions` in San Francisco. Here is a table of the zip codes most severely impacted:
+
+```{r}
+kable(by_zip, colnames = c("Zip Code", "Number of Evictions"))
+```
+
+## Time Trends
+
+There have been multiple spikes that warrant more investigation:
+
+```{r}
+by_month_plot
+```
+
+## Spatial Trends
+
+Here are the locations of evictions in 2017:
+
+```{r, warning = FALSE}
+evictions_plot
+```
+
+
